@@ -15,18 +15,8 @@ import com.esmile.model.dao.SampleDao;;
 
 @Controller // (1)
 public class EchoController {
-	    @RequestMapping // (3)
-	    public String index(Model model) {
-	    	return "echo/input"; // (4)
-	    }
-
-	    @RequestMapping(value = "echo/echo", method = RequestMethod.POST) // (5)
-	    public String echo(BindingResult result, Model model) { // (6)
-
-	        if (result.hasErrors()) { // (7)
-	            return "echo/input";
-	        }
-
+	    @RequestMapping
+	    public String showMessage(Model model) { 
 	     // ①コンテキスト取得
 	        ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-config.xml");
 	        // ②インスタンスの取得
@@ -37,7 +27,7 @@ public class EchoController {
 	        
 	        model.addAttribute("name",names); // (8)
 	                
-	        return "echo/echo";
+	        return "showMessage";
 	    }
 	    
 }
