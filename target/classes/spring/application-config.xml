@@ -21,7 +21,7 @@
     
     <!-- DAOクラス -->
     <bean class="com.esmile.model.dao.SampleDao">
-        <property name="JdbcTemplate" ref="jdbcTemplate" />
+    	<property name="JdbcTemplate" ref="jdbcTemplate" />
     </bean>        
             
 </beans>
