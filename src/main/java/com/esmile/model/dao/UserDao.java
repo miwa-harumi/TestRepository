@@ -1,6 +1,6 @@
 package com.esmile.model.dao;
 
-import com.esmile.model.dto.SampleDto;
+import com.esmile.model.dto.UserDto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class Userdao {
+public class UserDao {
 
 	// ①JdbcTemplateの変数宣言
 	private JdbcTemplate jdbcTemplate;
@@ -25,7 +25,7 @@ public class Userdao {
 		return ret;
 	}
 
-	public int regist(SampleDto a) throws ParseException {
+	public int regist(UserDto a) throws ParseException {
 		String data = a.getBirthdate();
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 		Date date = sdFormat.parse(data);
