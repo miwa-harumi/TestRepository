@@ -2,31 +2,29 @@ package com.esmile.service;
 
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class UserService extends BaseService {
+public class BaseService {
+	protected String   		action;	//アクション受取用
+	protected JsonNode 		data;		//本体データ受取用
+	protected ObjectMapper	mapper;	//json変換用 
 	
 	//コンストラクタ
-	public UserService() {
-		super();
+	public BaseService() {
+		this.mapper = new ObjectMapper();
 	}
 	
 	//セットデータ
-	@Override
 	public void SetData(String aciton,JsonNode data) {
 		this.action = aciton;
 		this.data   = data; 
 	};
 		
 	//モデル振り分け
-	@Override
 	public String ActionState() throws Exception {
-		String result = null;
+		String result = null;	
 		
-		if(this.action.equals("regist")) {
-			result = this.mapper.writeValueAsString(this.data);
-		}
-
 		return result;
 	}
 }
