@@ -19,6 +19,7 @@
     
      <!-- Spring MVCで使用するコンポーネントのルートパッケージを定義 -->
     <context:component-scan base-package="com.esmile.controller"/>
+	<context:component-scan base-package="com.esmile.service" />
     
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
