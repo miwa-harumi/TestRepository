@@ -12,8 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.esmile.model.dao.UserDao;
-import com.esmile.model.dto.UserDto;
+import com.esmile.model.dao.SampleDao;
+import com.esmile.model.dto.SampleDto;
 
 @Controller // (1)
 public class EchoController {
@@ -22,9 +22,9 @@ public class EchoController {
 	     // ①コンテキスト取得
 	        ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-config.xml");
 	        // ②インスタンスの取得
-	        UserDao dao = context.getBean(UserDao.class);
+	        SampleDao dao = context.getBean(SampleDao.class);
 	        
-	        UserDto a = new UserDto();
+	        SampleDto a = new SampleDto();
 	        
 	        a.setId(2);
 	        a.setLast_Name("井手");
