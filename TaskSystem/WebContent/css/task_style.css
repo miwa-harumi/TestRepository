@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+@media only screen and (max-width: 979px) {
+     
+    Html{
+        Width:100%;
+    }
+ 
+} /*デバイスの横幅が979px以下の場合*/
+ 
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+     
+    Html{
+        Width:100%;
+    }
+ 
+} /*デバイスの横幅が321以上768以下の場合*/
+ 
+@media only screen and (max-width: 320px) {
+     
+    header{
+        Width:90%;
+    }
+ 
+} /* デバイスの横幅が320px以下の場合 */
+
+/*=================================================
+　　　　　　　　　　　全体的な操作
+===================================================*/
+/*背景の設定*/
+body
+{
+	max-width       : 100%;
+	height          : auto;
+    
+	/*全体の背景色(雨)*/
+	background-color: #c9ecff;
+}
+
+/*ヘッダーの文字の設定(タスク管理システム)*/
+.css__title-insert 
+{
+	/*文字を中央に寄せる*/
+	text-align      : center;
+
+	margin          : 1pt auto;
+
+	width           : 50%;
+	
+	/*ヘッダー背景色を灰色に帰る(雲)*/
+	background-color: #d3d7cf;
+
+	color           : #555753;
+}
+
+/*空白を開ける*/
+.css__line_height
+{
+	 margin : 1em 10%;
+}
+
+/*=================================================
+　　　　　　　　　　　タスクボックスの操作
+===================================================*/
+/*
+.css__box_parent
+{
+	display			 : flex;
+	width				 : 100%;
+	-webkit-flex-wrap : wrap;
+	flex-wrap		    : wrap;
+ 	justify-content   :space-between;
+}
+*/
+.css__box_parent::before
+{
+  content : "";
+  display : block;
+  width   : 24%;
+  order   : 1;
+}
+.css__box_parent::after
+{
+  content : "";
+  display : block;
+  width   : 24%;
+}
+
+/*タスクボックスの操作*/
+.css__box
+{
+	/*ボックスとボックスの間隔を開ける*/
+	margin        : 1.75%;
+	
+	/*ボックスの横幅*/
+	width         : 350px;
+	
+	/*ボックスの縦幅*/
+	height        : 250px;
+	
+	padding       : 10px;
+	
+	/*ボックスの枠線*/
+	border        : solid 3px #6091d3;
+	
+	/*背景色を緑に指定(カエル)*/
+	background    : #8aeabc;
+	
+	/*ボックスの丸み*/
+	border-radius : 40px 40px 40px 40px;
+	
+	/*改行させない*/
+	display       : inline-block;
+	
+	justify-content   :space-between;
+}
+
+/*タスクタイトルテキストボックスの大きさ変更*/
+.css__box_title
+{
+	resize           : none;
+	
+	/*横幅は全体の100%*/
+	width            : 80%;
+	
+	font-size        : 120%;
+	
+	/*ボックスの高さ指定*/
+	height           : 60px;
+	
+	/*ボックスの枠の色(口)*/
+	border           : 1px solid #cc0000;
+	
+	/*入力した内容の自動改行(ボックスの大きさが変わったとき、改行は無視しない)*/
+	wrap             : soft;
+	
+	/*間隔を開ける(右)*/
+	margin-left      : 8%;
+	
+	background-color : #eeeeec;
+}
+
+/*「更新日時」と表示される時間を右詰め表示*/
+.css__box_time
+{	
+	/*間隔を開ける(右)*/
+	margin-right : 5%;
+	
+	/*文字を中央に寄せる*/
+	text-align   : right;
+}
+
+/*タスク内容テキストボックスの大きさ変更*/
+.css__box_textbox
+{
+	resize           : none;
+	
+	/*横幅は全体の100%*/
+	width            : 100%;
+	
+	font-size        : 100%;
+	
+	/*ボックスの高さ指定*/
+	height           : 80px;
+	
+	/*ボックスの枠の色(口)*/
+	border           : 1px solid #cc0000;
+	
+	/*入力した内容の自動改行(ボックスの大きさが変わったとき、改行は無視しない)*/
+	wrap             : soft;
+	
+	background-color : #ffd0d0;
+}
+
+/*テキスト、ボタンを中央に寄せる*/
+.p__center 
+{
+	/*文字を中央に寄せる*/
+	text-align  : center;
+	
+	color       : #00c1ff;
+	
+	/* 文字の太さをboldに指定 */
+    font-weight : bold;
+    
+    font-size   : 150%; 
+}
+
+/*入力フォームの大きさ変更*/
+input.css__form
+{
+	/*横幅*/
+	width   : 20%;
+
+	/*縦幅*/
+	height  : 25pt;
+	
+	/*改行させない*/
+	display : inline-block;
+}
+/*=================================================
+　　　　　　　　　　　ボタン操作
+===================================================*/
+
+/*ボタンの操作*/
+button.css__insert
+{
+	position:relative; 
+	top: 2px; 
+	
+	font-size        : 100%;
+	
+    /* 文字の太さをboldに指定 */
+	font-weight      : bold;
+		
+	text-align       : center;
+
+    /* 背景色を濃い青色に指定 */
+    background-color : #fff1c0;
+
+    /* 文字色をオレンジ色に指定(雷) */
+    color            : #f57900;
+
+    /* ボーダーをなくす */
+    border-style     : none;	
+}
+
+
+/*ボタンにカーソルを合わせたとき操作*/
+button.css__insert:hover
+{
+	/* 文字色をオレンジ色に指定(雷) */
+    color            : #ce5c00;
+    
+	/* 背景色を黄色に指定 */
+    background-color : #edd400;
+}
+
+/*ボタンの操作*/
+button.css__update
+{		
+	float             : left;
+	
+	margin-left       : 5%;
+	
+	font-size         : 100%;
+	
+	/*横幅*/
+	width             : 35%;
+	
+    /* 文字の太さをboldに指定 */
+    font-weight      : bold;
+    
+    /* 背景色を濃い青色に指定 */
+    background-color : #eeeeec;
+
+    /* 文字色をオレンジ色に指定(雷) */
+    color            : #2e3436;
+
+    /* ボーダーをなくす */
+    border-style     : none;	
+    }
+
+/*ボタンにカーソルを合わせたとき操作*/
+button.css__update:hover
+{
+	/* 文字色をオレンジ色に指定(雷) */
+    color            : #2e3436;
+    
+	/* 背景色を黄色に指定 */
+    background-color : #00c1ff;
+}
+
+/*ボタンの操作*/
+.css__delete
+{
+	float             : right;
+	
+	margin-right      : 5%;
+	
+	font-size         : 100%;
+	
+	/*横幅*/
+	width             : 35%;
+	
+    /* 文字の太さをboldに指定 */
+    font-weight      : bold;
+
+    /* 背景色を濃い青色に指定 */
+    background-color : #eeeeec;
+
+    /* 文字色をオレンジ色に指定(雷) */
+    color            : #2e3436;
+
+    /* ボーダーをなくす */
+    border-style     : none;	
+}
+
+/*ボタンにカーソルを合わせたとき操作*/
+.css__delete:hover
+{
+	/* 文字色をオレンジ色に指定(雷) */
+    color            : #2e3436;
+    
+	/* 背景色を黄色に指定 */
+    background-color : #ef2929;
+}
