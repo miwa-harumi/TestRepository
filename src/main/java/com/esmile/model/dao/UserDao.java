@@ -26,6 +26,7 @@ public class UserDao {
 	}
 
 	public int regist(UserDto a) throws ParseException {
+<<<<<<< HEAD
 		jdbcTemplate.update(
 				"insert into user(last_name,first_name,phone_number,"
 						+ "mail,sex,birthdate,password,"
@@ -34,6 +35,24 @@ public class UserDao {
 				a.getLast_Name(), a.getFirst_Name(), a.getPhone_Number(), a.getMail(), a.getSex(),
 				"2010/10/10 10:10:10",a.getPassword(), a.getCompany_Id(), null, null);
 		
+=======
+		String data = a.getBirthdate();
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+		Date date = sdFormat.parse(data);
+		
+		System.out.println("Date型 = " + date);
+		
+		jdbcTemplate.update(
+				"insert into user(user_id,last_name,first_name,phone_number,"
+						+ "mail,sex,birthdate,birthplace,introduction,skill,open_range,password,"
+						+ "icon_image,header_image,company_id,created_at,update_at)"
+						+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+				a.getId(), a.getLast_Name(), a.getFirst_Name(), a.getPhone_Number(), a.getMail(), a.getSex(), date,
+				a.getBirthplace(), a.getIntroduction(), a.getSkill(), a.getOpen_Range(), a.getPassword(),
+				a.getIcon_Image(), a.getHeader_Image(), a.getCompany_Id(), a.getCreated_at(), a.getUpdated_at());
+		
+		System.out.println("insert");
+>>>>>>> 72efb95c3016b41583fe143ba8109d60f921900f
 		return 0;
 	}
 }
