@@ -20,7 +20,7 @@ public class BaseService {
 		this.action = aciton;
 		this.data   = data; 
 	};
-		
+	
 	//モデル振り分け
 	public String ActionState() throws Exception {
 		String result = null;	
