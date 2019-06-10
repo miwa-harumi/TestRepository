@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +29,7 @@ public class MainController {
 	//サービス振り分け
 	@RequestMapping(value = "MainController",method = RequestMethod.POST)
 	@ResponseBody
+	@CrossOrigin
 	public String SortingService(HttpServletRequest request) throws Exception {
 		//受け取ったデータを文字列に変換
 		BufferedReader buffer     = new BufferedReader(request.getReader());
