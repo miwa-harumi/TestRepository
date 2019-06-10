@@ -15,14 +15,14 @@ src/main/java/com/esmile/model/dto/ChatDto.java
 target/classes/com/esmile/model/dto/ChatDto.class
 target/classes/com/esmile/model/
 .project
-	.settings/
-	bin/.gitignore
-	bin/.project
-	bin/.settings/
-	bin/.springBeans
-	bin/pom.xml
-	bin/src/main/resources/
-	bin/src/main/webapp/WEB-INF/mvc-config.xml
-	bin/src/main/webapp/WEB-INF/web.xml
-	bin/target/
+.settings/
+bin/.gitignore
+bin/.project
+bin/.settings/
+bin/.springBeans
+bin/pom.xml
+bin/src/main/resources/
+bin/src/main/webapp/WEB-INF/mvc-config.xml
+bin/src/main/webapp/WEB-INF/web.xml
+bin/target/
 #.gitignore
