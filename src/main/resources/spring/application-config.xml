@@ -23,9 +23,9 @@
         <constructor-arg ref="dataSource" />
     </bean>
     
-    <!-- DAOクラス -->
+    <!-- DAOクラス
     <bean class=" com.esmile.model.dao.UserDao">
         <property name="JdbcTemplate" ref="jdbcTemplate" />
-    </bean>
+    </bean>-->
                 
 </beans>
