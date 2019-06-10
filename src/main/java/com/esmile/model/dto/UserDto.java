@@ -3,7 +3,6 @@ package com.esmile.model.dto;
 
 public class UserDto {
 	
-<<<<<<< HEAD
 	private int    user_id;
 	private String last_name;
 	private String first_name;
@@ -21,25 +20,6 @@ public class UserDto {
 	private int    company_id;
 	private String created_at;
 	private String updated_at;
-=======
-	private int    	user_id;
-	private String 	last_name;
-	private String 	first_name;
-	private String 	phone_number;
-	private String 	mail;
-	private int    	sex;
-	private String 	birthdate;
-	private String 	birthplace;
-	private String 	introduction;
-	private String 	skill;
-	private int    	open_range;
-	private String 	password;
-	private String 	icon_image;
-	private String 	header_image;
-	private int    	company_id;
-	private String 	created_at;
-	private String 	updated_at;
->>>>>>> 72efb95c3016b41583fe143ba8109d60f921900f
 	
 	// ユーザーID
 	public int getId() { return user_id; }
@@ -99,11 +79,7 @@ public class UserDto {
 	// パスワード
 	public String getPassword() { return password; }
 
-<<<<<<< HEAD
 	public void setPassword(String password) { this.password = password; }
-=======
-	public void setPasswprd(String password) { this.password = password; }
->>>>>>> 72efb95c3016b41583fe143ba8109d60f921900f
 	
 	// アイコンイメージ
 	public String getIcon_Image() { return icon_image; }
@@ -129,8 +105,4 @@ public class UserDto {
 	public String getUpdated_at() { return updated_at; }
 
 	public void setUpdated_at(String updated_at) { this.updated_at = updated_at; }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 72efb95c3016b41583fe143ba8109d60f921900f
