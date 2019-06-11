@@ -18,20 +18,26 @@
 	<option value = 'MainController'> 'MainController' </option>
 	</select>
 	
-	<select id = "reqest">
-	<option value = "{model:'user', action:'regist',dataObj}"> {model:'user', action:'regist',dataObj} </option>
-	</select>
+<!-- 	<select id = "reqest"> -->
+<!-- 	<option value = "{model:'user', action:'regist',dataObj}"> {model:'user', action:'regist',dataObj} </option> -->
+<!-- 	<option value = "{model:'chat', action:'Chat'}"> {model:'chat', action:'Chat'} </option> -->
+<!-- 	</select> -->
 	
 	<script type="text/javascript">
 			var ajax_btn 	= document.getElementById('ajax_btn');
 			ajax_btn.addEventListener('click', function() {
 				dataObj = {
-					first_name: "山田",
-					last_name : "太郎"
-				};
+						first_name: "山田",
+						last_name : "太郎",
+						phone_number:"00000000",
+						mail:"ezewb@ezweb.ne",
+						sex:"0",
+						password:"012345678",
+						company_id:"1",
+					};
 		    	//通信情報
 		    	var urlList = document.getElementById("url").value;  //URL情報
-		    	var requestData = document.getElementById("reqest").value;//受け渡しデータ
+		    	var requestData = {model:'user', action:'regist',dataObj};//受け渡しデータ
 		    	//情報送信
 		    	var reqList = new Request(urlList,{
 		    	    method: 'post',
