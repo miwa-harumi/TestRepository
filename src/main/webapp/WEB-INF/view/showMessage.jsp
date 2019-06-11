@@ -14,6 +14,13 @@
     	<input type="button" id="ajax_btn" value="Ajax通信テスト" /><br />
     	ajaxData：<span id="output_data"></span>
 	</div>
+	<select id = "url">
+	<option value = 'MainController'> 'MainController' </option>
+	</select>
+	
+	<select id = "reqest">
+	<option value = "{model:'user', action:'regist',dataObj}"> {model:'user', action:'regist',dataObj} </option>
+	</select>
 	
 	<script type="text/javascript">
 			var ajax_btn 	= document.getElementById('ajax_btn');
@@ -23,8 +30,8 @@
 					last_name : "太郎"
 				};
 		    	//通信情報
-		    	var urlList = 'MainController';  //URL情報
-		    	var requestData = {model:'user', action:'regist',dataObj};//受け渡しデータ
+		    	var urlList = document.getElementById("url").value;  //URL情報
+		    	var requestData = document.getElementById("reqest").value;//受け渡しデータ
 		    	//情報送信
 		    	var reqList = new Request(urlList,{
 		    	    method: 'post',
