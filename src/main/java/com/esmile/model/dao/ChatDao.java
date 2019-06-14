@@ -44,8 +44,7 @@ public class ChatDao {
 		return ret;
 	}
 	
-	public List<Map<String, Object>> list(JsonNode data) {
-
+	public List<Map<String, Object>> list(JsonNode data) throws ParseException, IOException{
 		// 引数指定なし
 		List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from chat where chat_one = " + data.get("chat_one").asInt()				 
 																						+ " AND chat_two = " +data.get("chat_two").asInt());

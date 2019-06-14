@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.esmile.service.ChatService;
 import com.esmile.service.UserService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +21,9 @@ public class MainController {
 	//サービス
 	@Autowired
 	private UserService UserService;
+	
+	@Autowired
+	private ChatService ChatService;
 	
 	//テスト用
 	@RequestMapping("show")
@@ -49,10 +54,15 @@ public class MainController {
 			
 		 //モデル判別
 		 if(model.equals("user")){ 
-			 UserService.SetData(action,dataObj);;
+			 UserService.SetData(action,dataObj);
 			 response  = UserService.ActionState();
 		 }		 
 		
+		 if(model.equals("chat")){ 
+			 ChatService.SetData(action,dataObj);
+			 response  = ChatService.ActionState();
+		 }	
+		 
 		return response;
 	}
 }
