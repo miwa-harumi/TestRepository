@@ -13,49 +13,56 @@ import com.esmile.model.dto.UserDto;
 import com.fasterxml.jackson.databind.JsonNode;
 
 @Service
-public class ChatService extends BaseService {
-	
-	//コンストラクタ
-	public ChatService() {
+public class ChatService extends BaseService 
+{
+	// コンストラクタ
+	public ChatService() 
+	{
 		super();
 	}
-	
-	//セットデータ
+
+	// セットデータ
 	@Override
-	public void SetDataList(String aciton) {
+	public void SetData(String aciton, JsonNode data) 
+	{
 		this.action = aciton;
+		this.data = data;
 	};
-		
-	//モデル振り分け
+
+	// モデル振り分け
 	@Override
-	public String ActionState() throws Exception {
+	public String ActionState() throws Exception 
+	{
 		String result = null;
-		
-    	 //コンテキスト取得
-        ApplicationContext context = new ClassPathXmlApplicationContext("/spring/application-config.xml");
-        
-         //インスタンスの生成
-        ChatDao dao = context.getBean(ChatDao.class);
-        
-        if(this.action.equals("regist")) {
-			
-			UserDto dto = new UserDto();
-			dto.setFirst_Name  (this.data.get("first_name").asText());
-			dto.setLast_Name   (this.data.get("last_name").asText());
-			dto.setPhone_Number(this.data.get("phone_number").asText());
-			dto.setMail	     (this.data.get("mail").asText());
-			dto.setSex         (this.data.get("sex").asInt());
-			dto.setPassword    (this.data.get("password").asText());
-			dto.setCompany_Id  (this.data.get("company_id").asInt());
-			
-			int res = dao.regist(dto);
-			result  = this.mapper.writeValueAsString(res);
-		}
-        
-		if(this.action.equals("list")) 
+
+		// コンテキスト取得
+		ApplicationContext context = new ClassPathXmlApplicationContext("/spring/application-config.xml");
+
+		// インスタンスの生成
+		ChatDao dao = context.getBean(ChatDao.class);
+
+		if (this.action.equals("send")) 
 		{
-			List<Map<String, Object>> res = dao.chat();
-			result  = this.mapper.writeValueAsString(res);
+			ChatDto dto = new ChatDto();
+			dto.setChat_Send(this.data.get("chat_one").asInt());
+			dto.setChat_Get(this.data.get("chat_two").asInt());
+			dto.setChat_Data(this.data.get("chat_data").asText());
+			
+			int res = dao.send(data,dto);
+			result = this.mapper.writeValueAsString(res);
+		}
+		
+		if (this.action.equals("delete")) 
+		{
+			ChatDto dto = new ChatDto();
+			dto.setChat_Data(this.data.get("chat_data").asText());
+			int res = dao.delete(data,dto);
+			result = this.mapper.writeValueAsString(res);
+		}
+		
+		if (this.action.equals("list")) {
+			List<Map<String, Object>> res = dao.list(data);
+			result = this.mapper.writeValueAsString(res);
 		}
 		return result;
 	}

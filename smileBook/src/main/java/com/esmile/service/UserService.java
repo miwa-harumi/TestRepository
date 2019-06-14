@@ -34,8 +34,8 @@ public class UserService extends BaseService {
          //インスタンスの生成
         UserDao dao = context.getBean(UserDao.class);
         
-		if(this.action.equals("regist")) {
-			
+		if(this.action.equals("regist")) 
+		{
 			UserDto dto = new UserDto();
 			dto.setFirst_Name  (this.data.get("first_name").asText());
 			dto.setLast_Name   (this.data.get("last_name").asText());

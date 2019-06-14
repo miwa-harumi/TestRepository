@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.esmile.service.ChatService;
+import com.esmile.service.FriendService;
 import com.esmile.service.UserService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +25,9 @@ public class MainController {
 	
 	@Autowired
 	private ChatService ChatService;
+	
+	@Autowired
+	private FriendService FriendService;
 	
 	//テスト用
 	@RequestMapping("show")
@@ -59,9 +63,14 @@ public class MainController {
 		 }		 
 		
 		 if(model.equals("chat")){ 
-			 ChatService.SetDataList(action);
+			 ChatService.SetData(action,dataObj);
 			 response  = ChatService.ActionState();
 		 }	
+		 
+		 if(model.equals("friend")){ 
+			 FriendService.SetData(action,dataObj);
+			 response  = FriendService.ActionState();
+		 }
 		 
 		return response;
 	}

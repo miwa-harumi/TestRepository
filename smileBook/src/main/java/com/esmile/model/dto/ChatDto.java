@@ -5,6 +5,7 @@ public class ChatDto {
 	private int	 	send;
 	private int 		receive;
 	private String 	data;
+	private String 	key;
 	
 	//送る側のID
 	public int getChat_Send() { return send; }
@@ -17,4 +18,8 @@ public class ChatDto {
 	//Chatの文章(JSON形式)
 	public String getChat_Data() { return data; }
 	public void setChat_Data(String chat_data) { this.data = chat_data; }
+	
+	//Chatの文章(JSON形式)
+	public String getChat_Key() { return key; }
+	public void setChat_Key(String chat_key) { this.key = chat_key; }
 }

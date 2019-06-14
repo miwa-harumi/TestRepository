@@ -21,10 +21,6 @@ public class BaseService {
 		this.data   = data; 
 	};
 	
-	public void SetDataList(String aciton) {
-		this.action = aciton;
-	};
-	
 	//モデル振り分け
 	public String ActionState() throws Exception {
 		String result = null;	
