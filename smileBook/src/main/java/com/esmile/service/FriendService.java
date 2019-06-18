@@ -51,6 +51,7 @@ public class FriendService extends BaseService
 			int res = dao.send(dto);
 			result = this.mapper.writeValueAsString(res);
 		}
+		
 		if (this.action.equals("reqest")) 
 		{
 			FriendDto dto = new FriendDto();
@@ -58,15 +59,37 @@ public class FriendService extends BaseService
 			int res = dao.reqest(data,dto);
 			result = this.mapper.writeValueAsString(res);
 		}		
+
+		if (this.action.equals("chat_delete")) 
+		{
+			FriendDto dto = new FriendDto();
+			int res = dao.chat_delete(data,dto);
+			result = this.mapper.writeValueAsString(res);
+		}
+		
 		if (this.action.equals("delete")) 
 		{
 			FriendDto dto = new FriendDto();
-			//dto.setFriend_Status(this.data.get("chat_data").asInt());
 			int res = dao.delete(data,dto);
 			result = this.mapper.writeValueAsString(res);
 		}
-		if (this.action.equals("list")) {
-			List<Map<String, Object>> res = dao.list(data);
+		
+		if (this.action.equals("cancel")) 
+		{
+			FriendDto dto = new FriendDto();
+			int res = dao.cancel(data,dto);
+			result = this.mapper.writeValueAsString(res);
+		}
+		
+		if (this.action.equals("friend_list")) {
+			FriendDto dto = new FriendDto();
+			List<Map<String, Object>> res = dao.friend_list(data,dto);
+			result = this.mapper.writeValueAsString(res);
+		}
+		
+		if (this.action.equals("chat_list")) {
+			FriendDto dto = new FriendDto();
+			List<Map<String, Object>> res = dao.chat_list(data,dto);
 			result = this.mapper.writeValueAsString(res);
 		}
 		return result;

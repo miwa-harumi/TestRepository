@@ -32,4 +32,7 @@
                 
 	<bean class="com.esmile.model.dao.FriendDao"> 
 	<property name="JdbcTemplate" ref="jdbcTemplate" /> </bean>
+	
+	<bean class="com.esmile.model.dao.CompanyDao"> 
+	<property name="JdbcTemplate" ref="jdbcTemplate" /> </bean>
 </beans>

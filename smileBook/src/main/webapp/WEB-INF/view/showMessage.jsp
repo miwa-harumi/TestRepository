@@ -27,42 +27,58 @@
 	<script type="text/javascript">
 		var ajax_btn 	= document.getElementById('ajax_btn');
 		ajax_btn.addEventListener('click', function() {
+			/*
 			dataObj =
 			{
-				user_id: "1",
-				friend_id : "4",
-				status : "1"
+				company_id: "2",
 			};
-			/*	
+			*/
+			
+			dataObj =
+			{
+				user_id: "2",
+				friend_id : "3",
+				status : "0"
+			};
+			
+			/*
 			chat_chat =
 			{
-				"user_id" : "2",
-				"content" : "hello",
-				"send_date" : "2019-06-14 11:07:45"
+				"user_id" : "3",
+				"content" : "Right to indian",
+				"send_date" : "2019-06-16 11:07:45"
 			};
+			
 			dataObj =
 			{
-				chat_one: "50",
-				chat_two : "60",
+				chat_one: "6",
+				chat_two : "3",
 				chat_data : JSON.stringify(chat_chat),
-				chat_key : "chat_3"
+				chat_key : "chat_2"
 			};
 			*/
 			/*
 			dataObj = 
 			{
-				first_name: "山田",
-				last_name : "太郎",
-				phone_number:"00000000",
-				mail:"ezewb@ezweb.ne",
+				first_name: "gundam",
+				last_name : "master",
+				phone_number:"123456789",
+				mail:"dakaraomaeha@ahonano.da",
 				sex:"0",
-				password:"012345678",
-				company_id:"1",
+				birthdate : "2306-06-16",
+				birthplace : "neohonkon",
+				introduction : "sekihatennkyou",
+				skill : "ryuuhatouhouhuhai",
+				open_range : "1",
+				password:"kingofheart",
+				icon_image : "domon.png",
+				header_image : "kuron.png",
+				company_id : "1"
 			};
 			*/
 		   	//通信情報
 		   	var urlList = document.getElementById("url").value;  //URL情報
-		   	var requestData = {model:'friend', action:'list',dataObj}; //受け渡しデータ
+		   	var requestData = {model:'friend', action:'chat_list',dataObj}; //受け渡しデータ
 		   	//情報送信
 		   	var reqList = new Request(urlList,
 		   	{

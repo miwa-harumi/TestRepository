@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.esmile.service.ChatService;
 import com.esmile.service.FriendService;
 import com.esmile.service.UserService;
+import com.esmile.service.CompanyService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -28,6 +29,9 @@ public class MainController {
 	
 	@Autowired
 	private FriendService FriendService;
+	
+	@Autowired
+	private CompanyService CompanyService;
 	
 	//テスト用
 	@RequestMapping("show")
@@ -70,6 +74,11 @@ public class MainController {
 		 if(model.equals("friend")){ 
 			 FriendService.SetData(action,dataObj);
 			 response  = FriendService.ActionState();
+		 }
+		 
+		 if(model.equals("company")){ 
+			 CompanyService.SetData(action,dataObj);
+			 response  = CompanyService.ActionState();
 		 }
 		 
 		return response;

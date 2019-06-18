@@ -35,7 +35,7 @@ public class UserService extends BaseService {
         UserDao dao = context.getBean(UserDao.class);
         
 		if(this.action.equals("regist")) 
-		{
+		{			
 			UserDto dto = new UserDto();
 			dto.setFirst_Name  (this.data.get("first_name").asText());
 			dto.setLast_Name   (this.data.get("last_name").asText());
@@ -44,7 +44,15 @@ public class UserService extends BaseService {
 			dto.setSex         (this.data.get("sex").asInt());
 			dto.setPassword    (this.data.get("password").asText());
 			dto.setCompany_Id  (this.data.get("company_id").asInt());
-			
+			dto.setBirthdate	 (this.data.get("birthdate").asText());			
+			dto.setBirthplace  (this.data.get("birthplace").asText());			
+			dto.setIntroduction(this.data.get("introduction").asText());
+			dto.setSkill		  (this.data.get("skill").asText());
+			dto.setOpen_Range   (this.data.get("open_range").asInt());			
+			dto.setIcon_Image	  (this.data.get("icon_image").asText());
+			dto.setHeader_Image(this.data.get("header_image").asText());			
+			dto.setCompany_Id(this.data.get("birthdate").asInt());
+
 			int res = dao.regist(dto);
 			result  = this.mapper.writeValueAsString(res);
 		}

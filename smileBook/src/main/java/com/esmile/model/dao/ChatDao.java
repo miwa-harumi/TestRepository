@@ -43,19 +43,39 @@ public class ChatDao {
 			System.out.println(map.get("chat_two").toString());
 			System.out.println(map.get("chat_data").toString());
 		}
-
 		return list;
 	}
 
 	public int send(JsonNode data, ChatDto get) {
 
+		int chat_one = get.getChat_Send();
+		int chat_two =  get.getChat_Get();
+		int sort = 0;
+		if(chat_one > chat_two )
+		{
+			sort = chat_one;
+			chat_one = chat_two;
+			chat_two = sort;
+			sort = 0;
+		}
+		
+		int getchat_one = data.get("chat_one").asInt();
+		int getchat_two = data.get("chat_two").asInt();
+		if(getchat_one > getchat_two)
+		{
+			sort = getchat_one;
+			getchat_one = getchat_two;
+			getchat_two = sort;
+			sort = 0;
+		}
+		
 		List<Map<String, Object>> req = jdbcTemplate.queryForList("select * from chat where chat_one = "
-				+ data.get("chat_one").asInt() + " AND chat_two = " + data.get("chat_two").asInt());
+				+ getchat_one + " AND chat_two = " + getchat_two);
 		try {
 			if (req.size() == 0) {
 
 				jdbcTemplate.update("insert into chat(chat_one,chat_two,chat_data)" + "values(?,?,'{\"chat_1\" : "
-						+ get.getChat_Data() + "}')", get.getChat_Send(), get.getChat_Get());
+						+ get.getChat_Data() + "}')",chat_one, chat_two);
 
 			} else {
 				// 文字列をjsonに変換
@@ -65,8 +85,8 @@ public class ChatDao {
 				int cnt = (object.size() + 1);
 
 				jdbcTemplate.update("UPDATE chat SET chat_data = JSON_INSERT(chat_data,'$.chat_" + cnt + "', ?)"
-						+ " WHERE chat_one = " + data.get("chat_one").asInt() + " AND chat_two = "
-						+ data.get("chat_two").asInt(), get.getChat_Data());
+						+ " WHERE chat_one = " + getchat_one + " AND chat_two = "
+						+ getchat_two, get.getChat_Data());
 			}
 		} catch (IOException e) {
 			return 1;
