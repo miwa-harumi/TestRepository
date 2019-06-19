@@ -20,18 +20,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class CompanyDao {
 
-	// ①JdbcTemplateの変数宣言
+	// JdbcTemplateの変数宣言
 	private JdbcTemplate jdbcTemplate;
 
-	// ②JdbcTemplateのsetter
+	// JdbcTemplateのsetter
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
+	//会社一覧API
 	public List<Map<String, Object>> list(JsonNode data) {
 		// 引数指定なし
 		List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from company");
 		for (Map<String, Object> map : list) {
+			
+			//会社IDと会社名を表示
 			System.out.println(map.get("company_id").toString());
 			System.out.println(map.get("name").toString());
 		}

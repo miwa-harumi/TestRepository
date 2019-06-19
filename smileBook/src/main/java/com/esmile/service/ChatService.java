@@ -41,6 +41,7 @@ public class ChatService extends BaseService
 		// インスタンスの生成
 		ChatDao dao = context.getBean(ChatDao.class);
 
+		//チャットを送る
 		if (this.action.equals("send")) 
 		{
 			ChatDto dto = new ChatDto();
@@ -52,6 +53,7 @@ public class ChatService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//チャットを削除する
 		if (this.action.equals("delete")) 
 		{
 			ChatDto dto = new ChatDto();
@@ -60,6 +62,7 @@ public class ChatService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//チャットのリスト
 		if (this.action.equals("list")) {
 			List<Map<String, Object>> res = dao.list(data);
 			result = this.mapper.writeValueAsString(res);

@@ -27,21 +27,27 @@
 	<script type="text/javascript">
 		var ajax_btn 	= document.getElementById('ajax_btn');
 		ajax_btn.addEventListener('click', function() {
+			
+			
 			/*
+			//会社一覧API用
 			dataObj =
 			{
 				company_id: "2",
 			};
 			*/
 			
+			//フレンドAPI用
+			/*
 			dataObj =
 			{
 				user_id: "2",
 				friend_id : "3",
 				status : "0"
 			};
+			*/
 			
-			/*
+			//chatAPI用
 			chat_chat =
 			{
 				"user_id" : "3",
@@ -51,13 +57,14 @@
 			
 			dataObj =
 			{
-				chat_one: "6",
+				chat_one: "2",
 				chat_two : "3",
 				chat_data : JSON.stringify(chat_chat),
 				chat_key : "chat_2"
 			};
-			*/
+			
 			/*
+			//ユーザーAPI用
 			dataObj = 
 			{
 				first_name: "gundam",
@@ -78,7 +85,11 @@
 			*/
 		   	//通信情報
 		   	var urlList = document.getElementById("url").value;  //URL情報
-		   	var requestData = {model:'friend', action:'chat_list',dataObj}; //受け渡しデータ
+		   	//requestパターン
+		   	//friend : send / friend_list / chat_list / request / cancel / chat_delete / delete
+		   	//chat : list / send / delete
+		   	//company : list 
+		   	var requestData = {model:'friend', action:'chat_delete',dataObj}; //受け渡しデータ
 		   	//情報送信
 		   	var reqList = new Request(urlList,
 		   	{

@@ -41,6 +41,7 @@ public class FriendService extends BaseService
 		// インスタンスの生成
 		FriendDao dao = context.getBean(FriendDao.class);
 
+		//フレンドの申請
 		if (this.action.equals("send")) 
 		{
 			FriendDto dto = new FriendDto();
@@ -52,14 +53,16 @@ public class FriendService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
-		if (this.action.equals("reqest")) 
+		//フレンド申請の許可/不許可
+		if (this.action.equals("request")) 
 		{
 			FriendDto dto = new FriendDto();
 			dto.setFriend_Status(this.data.get("status").asInt());
-			int res = dao.reqest(data,dto);
+			int res = dao.request(data,dto);
 			result = this.mapper.writeValueAsString(res);
 		}		
 
+		//フレンドが切れたときのチャットの削除
 		if (this.action.equals("chat_delete")) 
 		{
 			FriendDto dto = new FriendDto();
@@ -67,6 +70,7 @@ public class FriendService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//フレンドを切る
 		if (this.action.equals("delete")) 
 		{
 			FriendDto dto = new FriendDto();
@@ -74,6 +78,7 @@ public class FriendService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//申請を取りやめる
 		if (this.action.equals("cancel")) 
 		{
 			FriendDto dto = new FriendDto();
@@ -81,12 +86,14 @@ public class FriendService extends BaseService
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//フレンドのリスト
 		if (this.action.equals("friend_list")) {
 			FriendDto dto = new FriendDto();
 			List<Map<String, Object>> res = dao.friend_list(data,dto);
 			result = this.mapper.writeValueAsString(res);
 		}
 		
+		//フレンドとのチャットのリスト
 		if (this.action.equals("chat_list")) {
 			FriendDto dto = new FriendDto();
 			List<Map<String, Object>> res = dao.chat_list(data,dto);

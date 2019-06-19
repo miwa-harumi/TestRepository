@@ -42,6 +42,7 @@ public class CompanyService extends BaseService
 		// インスタンスの生成
 		CompanyDao dao = context.getBean(CompanyDao.class);		
 		
+		//所属会社情報のリスト
 		if (this.action.equals("list")) {
 			List<Map<String, Object>> res = dao.list(data);
 			result = this.mapper.writeValueAsString(res);
